@@ -1,1 +1,14 @@
 /* You can add global styles to this file, and also import other style files */
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+:root{
+  --accent-color: rgb(6, 146, 143);
+}
+
+body{
+  background-color: rgb(28, 26, 26);
+  color: aliceblue;
+}
