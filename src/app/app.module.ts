@@ -1,6 +1,5 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { HttpClientModule } from '@angular/common/http';
+// import { NgModule } from '@angular/core';
+// import { CommonModule } from '@angular/common';
 
 
 
@@ -8,18 +7,19 @@ import { HttpClientModule } from '@angular/common/http';
 
 
 
-@NgModule({
-  declarations: [
 
-  ],
-  imports: [
-    CommonModule,
-    // HttpClientModule,
-  ],
-  providers: [],
+// @NgModule({
+//   declarations: [
 
-})
-export class AppModule { }
+//   ],
+//   imports: [
+//     CommonModule,
+
+//   ],
+//   providers: [],
+
+// })
+// export class AppModule { }
 
 
 

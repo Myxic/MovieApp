@@ -10,6 +10,6 @@ export class MovieSearchService {
   constructor(private http: HttpClient) {}
 
   searchMovies(searchTerm: string): Observable<any> {
-    return this.http.post<any>('http://localhost:5028/api/Movies/search', { searchTerm });
+    return this.http.post<any>('http://localhost:5028/api/Movies/search', {searchTerm} );
   }
 }
