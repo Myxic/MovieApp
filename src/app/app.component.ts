@@ -27,7 +27,6 @@ export class AppComponent {
   title: any;
   searchTitle: any;
   searchTerm: string = '';
-  // searchResults: any[] = [];
   lastSearches: any[] = [];
   movieData: MovieData | null = null;
   dummyData: MovieData = {
@@ -63,43 +62,30 @@ export class AppComponent {
   ) { }
 
   ngOnInit(): void {
-    this.getLastSearches();
-    this.onSearch();
+    // this.getLastSearches();
+    // this.onSearch();
   }
 
-  // onSearch(): void {
-  //   this.movieSearchService.searchMovies(this.searchTerm);
-  //     // .subscribe(data => {
-  //     //   this.searchResults = data;
-  //     // }, error => {
-  //     //   // Handle error here
-  //     // this.error = error;
-  //     //     console.error('Error searching movies:', error);
 
-  //     // });
-  // }
-  onSearch(): void {
-    this.error = null; // Clear previous errors
+  onSearch():  void {
+    this.error = null;
 
-    this.movieSearchService.searchMovies(this.searchTerm)
+    const searchTerm = this.searchTitle;
+
+    this.movieSearchService.searchMovies(searchTerm)
       .subscribe(
         data => {
           this.movieData = data;
         },
         error => {
           this.error = error; // Handle errors gracefully
+          this.dummyData.plot = "page not found";
+          this.movieData = this.dummyData
           console.error('Error searching movies:', error);
         }
       );
   }
-  //   getLastSearches(): void {
-  //   this.cachedDataService.getLastSearches();
-  //     // .subscribe(data => {
-  //     //   this.lastSearches = data;
-  //     // }, error => {
-  //     //   // Handle error here
-  //     // });
-  // }
+
   getLastSearches(): void {
     this.cachedDataService.getLastSearches()
       .subscribe(

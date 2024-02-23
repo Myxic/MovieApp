@@ -12,7 +12,7 @@
     <h1>Neega</h1>
   </div>
   <div class="search-div">
-    <form action="">
+    <form action="http://localhost:5028/api/Movies/search" method="GET">
       <input type="text" name="Search" [(ngModel)]="searchTitle" id="searchTitle" class="searchTitle" placeholder="Movie Title">
       <button class="search-button" (click)="onSearch()" ><i class="fa fa-search"></i></button>
     </form>
