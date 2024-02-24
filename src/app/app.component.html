@@ -9,12 +9,13 @@
 
 <header>
   <div class="logo">
-    <h1>Neega</h1>
+    <h1>Geega</h1>
   </div>
   <div class="search-div">
     <form action="http://localhost:5028/api/Movies/search" method="GET">
-      <input type="text" name="Search" [(ngModel)]="searchTitle" id="searchTitle" class="searchTitle" placeholder="Movie Title">
-      <button class="search-button" (click)="onSearch()" ><i class="fa fa-search"></i></button>
+      <input type="text" name="Search" [(ngModel)]="searchTitle" id="searchTitle" class="searchTitle"
+        placeholder="Movie Title">
+      <button class="search-button" (click)="onSearch()"><i class="fa fa-search"></i></button>
     </form>
   </div>
   <div>
@@ -40,9 +41,7 @@
       </div>
       <div class="movie-details">
         <figure>
-          <img
-            src="{{ movieData?.poster || dummyData.poster }}"
-            class="image" alt="moviePhoto">
+          <img src="{{ movieData?.poster || dummyData.poster }}" class="image" alt="moviePhoto">
         </figure>
         <div class="content-container">
           <div class="plot">
@@ -66,13 +65,18 @@
       </div>
     </div>
   </div>
+
   <div class="two">
     <h2>
       Last Searchs
     </h2>
     <div class="search-list">
-
+      <div *ngFor="let search of lastSearches; let i = index">
+        <img src="{{search.poster }}" alt="">
+        <h3>{{search.title }}</h3>
+      </div>
     </div>
   </div>
+
 </main>
 <router-outlet />

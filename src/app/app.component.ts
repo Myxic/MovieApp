@@ -4,6 +4,7 @@ import { MovieSearchService } from './movie-search.service';
 import { CachedDataService } from './cached-data.service';
 import { MovieData } from './Movie-Data';
 import { FormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
 
 
 @Component({
@@ -11,7 +12,8 @@ import { FormsModule } from '@angular/forms';
   standalone: true,
   imports: [
     RouterOutlet,
-    FormsModule
+    FormsModule,
+    CommonModule
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
@@ -20,7 +22,6 @@ import { FormsModule } from '@angular/forms';
 
 export class AppComponent {
 
-  // @Input() searchTitle!: string;
 
 
 
@@ -62,8 +63,8 @@ export class AppComponent {
   ) { }
 
   ngOnInit(): void {
-    // this.getLastSearches();
-    // this.onSearch();
+    this.getLastSearches();
+
   }
 
 
@@ -76,6 +77,7 @@ export class AppComponent {
       .subscribe(
         data => {
           this.movieData = data;
+          this.getLastSearches()
         },
         error => {
           this.error = error; // Handle errors gracefully
